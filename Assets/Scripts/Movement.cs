@@ -8,9 +8,11 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     public float thrustValue = 100f;
     public float rotationThrustValue = 100f;
+    AudioSource audioSource;
    
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
 
     }
@@ -20,6 +22,7 @@ public class Movement : MonoBehaviour
     {
         ProcessThrust();
         ProcessRotation();
+       
     }
 
     void ProcessThrust()
@@ -28,6 +31,16 @@ public class Movement : MonoBehaviour
         {
             // Debug.Log("Thrusters Active");
             rb.AddRelativeForce(Vector3.up * thrustValue * Time.deltaTime);
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+
+        else
+        {
+            audioSource.Stop();
+
         }
     
     }
