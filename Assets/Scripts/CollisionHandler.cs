@@ -7,8 +7,20 @@ public class CollisionHandler : MonoBehaviour
 {
 
     public float delayInLoadTime = 1f;
+    bool isTransitioning = false;
+    public AudioClip crashSound;
+    public AudioClip levelCompletedSound;
+
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
+
+        if (isTransitioning) { return; }  // matlab agar transition ho rahi hai to don't execute the lower block of code
         switch (collision.gameObject.tag)
         {
             case "Friendly":
@@ -30,12 +42,18 @@ public class CollisionHandler : MonoBehaviour
 
     private void StartCrashSequence()
     {
+        isTransitioning = true;
+        audioSource.Stop();  // used to stop thrust noise after crash
+        audioSource.PlayOneShot(crashSound);
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", delayInLoadTime);
     }
 
     private void StartLevelCompletedSequence()
     {
+        audioSource.Stop();  // used to stop thrust noise after crash
+        isTransitioning = true;
+        audioSource.PlayOneShot(levelCompletedSound);
         GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel", delayInLoadTime);
     }

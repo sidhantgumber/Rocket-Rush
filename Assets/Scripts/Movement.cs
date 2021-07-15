@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     public float thrustValue = 100f;
     public float rotationThrustValue = 100f;
+    public AudioClip mainEngine;
     AudioSource audioSource;
    
     void Start()
@@ -33,7 +34,7 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * thrustValue * Time.deltaTime);
             if (!audioSource.isPlaying)
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
             }
         }
 

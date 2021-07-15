@@ -272,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrustValue: 1000
   rotationThrustValue: 100
+  mainEngine: {fileID: 8300000, guid: cc3a1948d525b624a890416992f06fef, type: 3}
 --- !u!54 &646523171
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -472,6 +473,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0904d40fd5ba9d4cb3f15f5d5c55e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayInLoadTime: 1
+  crashSound: {fileID: 8300000, guid: 7cf17c0db38c16640b53a54237ee3b43, type: 3}
+  levelCompletedSound: {fileID: 8300000, guid: f9a643a25d14a654e8a7a6206df7717e, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
