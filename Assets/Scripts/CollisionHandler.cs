@@ -11,11 +11,15 @@ public class CollisionHandler : MonoBehaviour
     public AudioClip crashSound;
     public AudioClip levelCompletedSound;
 
+    public GameObject crashFX;
+    public GameObject successFX;
+
     AudioSource audioSource;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+       
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -43,6 +47,7 @@ public class CollisionHandler : MonoBehaviour
     private void StartCrashSequence()
     {
         isTransitioning = true;
+        GameObject crashFXclone = Instantiate(crashFX, gameObject.transform.position, Quaternion.identity);
         audioSource.Stop();  // used to stop thrust noise after crash
         audioSource.PlayOneShot(crashSound);
         GetComponent<Movement>().enabled = false;
@@ -52,6 +57,7 @@ public class CollisionHandler : MonoBehaviour
     private void StartLevelCompletedSequence()
     {
         audioSource.Stop();  // used to stop thrust noise after crash
+        GameObject successFXclone = Instantiate(successFX, gameObject.transform.position, Quaternion.identity);
         isTransitioning = true;
         audioSource.PlayOneShot(levelCompletedSound);
         GetComponent<Movement>().enabled = false;
