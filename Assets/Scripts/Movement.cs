@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     public float rotationThrustValue = 100f;
     public AudioClip mainEngine;
     AudioSource audioSource;
+    public ParticleSystem thrustFX;
+   
    
     void Start()
     {
@@ -30,20 +32,35 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            // Debug.Log("Thrusters Active");
-            rb.AddRelativeForce(Vector3.up * thrustValue * Time.deltaTime);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-            }
+            StartThrusting();
         }
+
 
         else
         {
-            audioSource.Stop();
+            StopThrusting();
 
         }
-    
+
+    }
+
+    private void StopThrusting()
+    {
+        audioSource.Stop();
+        thrustFX.Stop();
+    }
+
+    private void StartThrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * thrustValue * Time.deltaTime);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+        if (!thrustFX.isPlaying)
+        {
+            thrustFX.Play();
+        }
     }
 
     void ProcessRotation()

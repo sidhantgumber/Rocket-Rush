@@ -10,6 +10,8 @@ public class CollisionHandler : MonoBehaviour
     bool isTransitioning = false;
     public AudioClip crashSound;
     public AudioClip levelCompletedSound;
+    private bool isCollisionDisabled = false;
+    public bool allowDebugging = false;
 
     public GameObject crashFX;
     public GameObject successFX;
@@ -21,10 +23,43 @@ public class CollisionHandler : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
        
     }
+
+    private void Update()
+    {
+        if (allowDebugging)
+        {
+            DebugKeys();
+        }
+    }
+
+    private void DebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            isCollisionDisabled = !isCollisionDisabled;
+           
+            /* if (isCollisionDisabled == false)
+            {
+                gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            }
+            else if(isCollisionDisabled == true)
+            {
+                gameObject.GetComponent<CapsuleCollider>().enabled = true;
+            }
+            */
+        
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+    
+    }
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (isTransitioning) { return; }  // matlab agar transition ho rahi hai to don't execute the lower block of code
+        if (isTransitioning || isCollisionDisabled) { return; }  // matlab agar transition ho rahi hai to don't execute the lower block of code
         switch (collision.gameObject.tag)
         {
             case "Friendly":
