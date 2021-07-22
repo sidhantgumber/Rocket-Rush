@@ -2306,6 +2306,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 1887324067693391337, guid: e0a3b13a5a99e7442bcc4270067245fe, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3438485404608885974, guid: e0a3b13a5a99e7442bcc4270067245fe, type: 3}
       propertyPath: m_Pivot.x
       value: 0
