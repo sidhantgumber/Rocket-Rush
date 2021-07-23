@@ -54,6 +54,10 @@ public class CollisionHandler : MonoBehaviour
         {
             LoadNextLevel();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ReloadLevel();
+        }
     
     }
     private void OnCollisionEnter(Collision collision)

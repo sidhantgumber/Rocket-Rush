@@ -3812,7 +3812,8 @@ PrefabInstance:
       propertyPath: m_InnerSpotAngle
       value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1423305252683131633, guid: 17bdb6cb87ec50c409343f9f910a5f02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17bdb6cb87ec50c409343f9f910a5f02, type: 3}
 --- !u!4 &522427727 stripped
 Transform:
@@ -4962,7 +4963,8 @@ PrefabInstance:
       propertyPath: m_InnerSpotAngle
       value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1423305252683131633, guid: 17bdb6cb87ec50c409343f9f910a5f02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17bdb6cb87ec50c409343f9f910a5f02, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -5318,7 +5320,8 @@ PrefabInstance:
       propertyPath: m_InnerSpotAngle
       value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1423305252683131633, guid: 17bdb6cb87ec50c409343f9f910a5f02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17bdb6cb87ec50c409343f9f910a5f02, type: 3}
 --- !u!4 &736325235 stripped
 Transform:
@@ -10411,7 +10414,8 @@ PrefabInstance:
       propertyPath: m_InnerSpotAngle
       value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1423305252683131633, guid: 17bdb6cb87ec50c409343f9f910a5f02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17bdb6cb87ec50c409343f9f910a5f02, type: 3}
 --- !u!1 &1429716164 stripped
 GameObject:
@@ -14857,7 +14861,8 @@ PrefabInstance:
       propertyPath: m_InnerSpotAngle
       value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1423305252683131633, guid: 17bdb6cb87ec50c409343f9f910a5f02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17bdb6cb87ec50c409343f9f910a5f02, type: 3}
 --- !u!1001 &2057775626
 PrefabInstance:
