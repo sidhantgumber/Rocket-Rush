@@ -11,8 +11,11 @@ public class Movement : MonoBehaviour
     public AudioClip mainEngine;
     AudioSource audioSource;
     public ParticleSystem thrustFX;
-   
-   
+    bool leftButtonPressed = false;
+    bool rightButtonPressed = false;
+    bool isThrustPressed = false;
+
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -30,7 +33,7 @@ public class Movement : MonoBehaviour
 
     void ProcessThrust()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space)|| isThrustPressed)
         {
             StartThrusting();
         }
@@ -65,13 +68,13 @@ public class Movement : MonoBehaviour
 
     void ProcessRotation()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A)||leftButtonPressed)
         {
             ApplyRotation(rotationThrustValue);
 
         }
 
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D)||rightButtonPressed)
         {
             ApplyRotation(-rotationThrustValue);
 
@@ -87,4 +90,40 @@ public class Movement : MonoBehaviour
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
         rb.freezeRotation = false;    
     }
+   /* public void RightButton()
+    {
+         ApplyRotation(-rotationThrustValue);
+    }*/
+    public void LeftButtonPressed()
+    {
+
+        leftButtonPressed = true;
+    }
+    public void LeftButtonReleased()
+    {
+
+        leftButtonPressed = false;
+    }
+
+    public void RightButtonPressed()
+    {
+
+        rightButtonPressed = true;
+    }
+    public void RightButtonReleased()
+    {
+
+        rightButtonPressed = false;
+    }
+
+    public void ThrustButtonPressed()
+    {
+        isThrustPressed = true;
+    }
+    public void ThrustButtonReleased()
+    {
+        isThrustPressed = false;
+    }
+
+
 }
